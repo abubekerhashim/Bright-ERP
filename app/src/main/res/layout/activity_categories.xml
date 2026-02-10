@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/supplier_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/rounded_background_6dp"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_left_arrow_line"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/name_assign_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Categories List"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btn_refresh"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_refresh"
+            android:layout_alignParentEnd="true"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="30dp"
+            android:backgroundTint="#f2f3f5"
+            android:layout_marginTop="12dp"
+            android:layout_below="@id/name_assign_bar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="12dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_search" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Search Categories..."
+                    android:textSize="12sp"
+                    android:gravity="bottom"
+                    android:background="@color/overlay"/>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/supplier_toolbar"
+        android:layout_margin="6dp"
+        app:shimmer_auto_start="true"
+        app:shimmer_duration="1000">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/layout_categories_shimmer"/>
+            <include layout="@layout/layout_categories_shimmer"/>
+            <include layout="@layout/layout_categories_shimmer"/>
+            <include layout="@layout/layout_categories_shimmer"/>
+            <include layout="@layout/layout_categories_shimmer"/>
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_categories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/supplier_toolbar"
+        android:layout_margin="6dp"
+        android:visibility="gone"
+        android:scrollbars="vertical"/>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add_xml"
+        app:backgroundTint="@color/white"
+        app:tint="@color/brown"
+        app:elevation="6dp"/>
+
+
+
+</RelativeLayout>

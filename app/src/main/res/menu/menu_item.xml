@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_dashboard"
+        android:title="Dashboard"
+        android:icon="@drawable/ic_graph"/>
+    <item
+        android:id="@+id/nav_sales"
+        android:title="Sales"
+        android:icon="@drawable/ic_sales"/>
+    <item
+        android:id="@+id/nav_scan"
+        android:title="Scan"
+        android:icon="@drawable/ic_scan"/>
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_person"/>
+
+
+</menu>

@@ -1,0 +1,93 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="6dp">
+
+    <!-- FrameLayout to overlay 3-dot menu -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Existing horizontal content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <View
+                android:id="@+id/employee_photo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/ic_supplier"
+                android:background="@drawable/shimmer_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="100dp"
+                    android:layout_height="14dp"
+                    android:background="@drawable/shimmer_background"/>
+
+                <View
+                    android:layout_width="70dp"
+                    android:layout_height="14dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/shimmer_background"/>
+
+                <View
+                    android:layout_width="80dp"
+                    android:layout_height="14dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/shimmer_background"/>
+
+                <View
+                    android:id="@+id/supplier_name"
+                    android:layout_width="40dp"
+                    android:layout_height="14dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/shimmer_background"/>
+
+                <!-- Action Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/shimmer_background"/>
+
+                    <View
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/shimmer_background"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Three-dot menu at top-right -->
+        <View
+            android:id="@+id/btn_more"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="16dp"
+            android:layout_gravity="end|top"
+            android:background="@drawable/shimmer_background" />
+
+    </FrameLayout>
+</androidx.cardview.widget.CardView>

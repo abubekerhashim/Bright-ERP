@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/customer_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/rounded_background_6dp"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_left_arrow_line"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/name_assign_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Customer List"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_filter"
+            android:layout_alignParentEnd="true"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="30dp"
+            android:backgroundTint="#f2f3f5"
+            android:layout_marginTop="12dp"
+            android:layout_below="@id/name_assign_bar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="12dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_search" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Search Customers..."
+                    android:textSize="12sp"
+                    android:gravity="bottom"
+                    android:background="@color/overlay"/>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+    <!-- RecyclerView Section -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_customer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/customer_toolbar"
+        android:layout_margin="6dp"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        android:scrollbars="vertical" />
+
+
+
+</RelativeLayout>

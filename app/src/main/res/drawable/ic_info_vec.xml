@@ -1,0 +1,29 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="?attr/colorControlNormal">
+
+  <!-- Outer Circle -->
+  <path
+      android:pathData="M12,2a10,10 0 1,0 0.001,0"
+      android:strokeColor="@android:color/white"
+      android:strokeWidth="1.5"
+      android:fillColor="@android:color/transparent"/>
+
+  <!-- Dot of "i" (centered at x=12) -->
+  <path
+      android:pathData="M12,7a1,1 0 1,1 -2,0 1,1 0 0,1 2,0"
+      android:strokeColor="@android:color/white"
+      android:strokeWidth="1.5"
+      android:fillColor="@android:color/transparent"/>
+
+  <!-- Stem of "i" (centered at x=12) -->
+  <path
+      android:pathData="M12,10v6"
+      android:strokeColor="@android:color/white"
+      android:strokeWidth="1.5"
+      android:strokeLineCap="round"
+      android:fillColor="@android:color/transparent"/>
+</vector>

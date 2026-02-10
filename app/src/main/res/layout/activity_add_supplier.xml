@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Purchasing.AddSupplier">
+
+    <RelativeLayout
+        android:id="@+id/add_supplier_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:elevation="6dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_left_arrow_line" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Add New Supplier"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_supplier_toolbar">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/rounded_background"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Categories"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <!-- ChipGroup -->
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/supplier_chips"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    app:singleLine="false"
+                    app:chipSpacing="8dp"/>
+
+                <!-- Add Category Button -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_add_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Category"
+                    android:textAllCaps="false"
+                    android:textSize="10sp"
+                    android:elevation="4dp"
+                    android:layout_margin="4dp"
+                    android:padding="6dp"
+                    android:gravity="center"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/white"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <!-- Customer Name -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/rounded_background"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Supplier Name"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/supplier_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/overlay"
+                    android:drawableStart="@drawable/ic_asset_vec"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Supplier Full Name"
+                    android:inputType="textCapWords"
+                    android:padding="12dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <!-- Customer Phone -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/rounded_background"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Supplier Phone"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/supplier_Phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/overlay"
+                    android:drawableStart="@drawable/ic_phone"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Supplier Phone"
+                    android:inputType="phone"
+                    android:padding="12dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <!-- Customer Address -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/rounded_background"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Supplier Address"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/supplier_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/overlay"
+                    android:drawableStart="@drawable/ic_locatio_vec"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Supplier Address"
+                    android:inputType="textCapWords"
+                    android:padding="12dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <!-- Customer Address -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/rounded_background"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Supplier Account (Optional)"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/bank_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/overlay"
+                    android:drawableStart="@drawable/ic_bank"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Bank name"
+                    android:inputType="textCapWords"
+                    android:padding="12dp"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/account_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/overlay"
+                    android:drawableStart="@drawable/ic_bank"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Account name"
+                    android:inputType="textCapWords"
+                    android:padding="12dp"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/account_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/overlay"
+                    android:drawableStart="@drawable/ic_bank"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Account Number"
+                    android:inputType="number"
+                    android:padding="12dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_create_supplier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/full_rounded_background"
+                android:backgroundTint="@color/bol_color"
+                android:text="Create Customer"
+                android:textAllCaps="false"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#2A000000">
+
+        <ProgressBar
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+
+    </FrameLayout>
+
+
+
+</RelativeLayout>

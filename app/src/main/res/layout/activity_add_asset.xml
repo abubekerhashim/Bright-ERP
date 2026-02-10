@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Assets.AddAssets">
+
+    <RelativeLayout
+        android:id="@+id/add_asset_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:elevation="6dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_left_arrow_line"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Add New Company Asset"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@id/add_asset_toolbar"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/asset_photo_layout"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="12sp"
+                android:background="@drawable/rounded_background"
+                android:elevation="4dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/txt_img_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_add_photo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Upload Asset Photo"
+                        android:textColor="@color/grey" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/show_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_asset"
+                    android:visibility="gone"/>
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="Asset Type"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_background"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <Spinner
+                    android:id="@+id/asset_type_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:spinnerMode="dropdown"/>
+
+            </LinearLayout>
+
+
+            <!-- Asset Name -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_background"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Asset Name"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/asset_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/overlay"
+                    android:drawableStart="@drawable/ic_asset_vec"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Asset Name"
+                    android:inputType="textCapWords"
+                    android:padding="12dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="Asset Category"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_background"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <Spinner
+                    android:id="@+id/category_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:spinnerMode="dropdown"/>
+
+            </LinearLayout>
+            <!-- Asset detail -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_background"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Asset Detail"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/asset_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/overlay"
+                    android:drawableStart="@drawable/ic_info_vec"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Asset Detail"
+                    android:inputType="textCapSentences"
+                    android:padding="12dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+            <!-- Asset Location -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_background"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Asset Location"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/asset_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/overlay"
+                    android:drawableStart="@drawable/ic_locatio_vec"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Asset Location"
+                    android:inputType="textPersonName"
+                    android:padding="12dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_create_asset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/full_rounded_background"
+                android:backgroundTint="@color/bol_color"
+                android:text="Create Asset"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Inventory.Warehouses">
+
+    <RelativeLayout
+        android:id="@+id/warehouses_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/rounded_background_6dp"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_left_arrow_line"/>
+
+        <TextView
+            android:id="@+id/text_employee_management"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Warehouses"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btn_refresh"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_refresh"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="30dp"
+            android:backgroundTint="#f2f3f5"
+            android:layout_marginTop="12dp"
+            android:layout_below="@id/text_employee_management">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="12dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_search" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Search Warehouses..."
+                    android:textSize="12dp"
+                    android:gravity="bottom"
+                    android:background="@color/overlay"/>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+    <!-- RecyclerView Section -->
+    <!-- Shimmer Layout -->
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/warehouses_toolbar"
+        android:layout_margin="6dp"
+        app:shimmer_auto_start="true"
+        app:shimmer_duration="1000">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/layout_warehouse_shimmer"/>
+            <include layout="@layout/layout_warehouse_shimmer"/>
+            <include layout="@layout/layout_warehouse_shimmer"/>
+            <include layout="@layout/layout_warehouse_shimmer"/>
+            <include layout="@layout/layout_warehouse_shimmer"/>
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_warehouses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/warehouses_toolbar"
+        android:layout_margin="6dp"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        android:scrollbars="vertical"
+        android:visibility="gone"/>
+
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_warehouse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:contentDescription="Add Product"
+        android:src="@drawable/ic_add_xml"
+        app:backgroundTint="@color/white"
+        app:tint="@color/brown" />
+
+</RelativeLayout>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+    <RelativeLayout
+        android:id="@+id/asset_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/rounded_background_6dp"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/disposable_asset_filter"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_filter"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/asset_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Disposable Assets"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="30dp"
+            android:backgroundTint="#f2f3f5"
+            android:layout_marginTop="12dp"
+            android:layout_below="@id/asset_type">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="12dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_search" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Search Disposable Assets..."
+                    android:textSize="12dp"
+                    android:gravity="bottom"
+                    android:background="@color/overlay"/>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <!-- no data layout-->
+
+    <LinearLayout
+        android:id="@+id/no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_empty"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="No Data!"/>
+
+    </LinearLayout>
+
+
+    <!-- RecyclerView Section -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_disposable_assets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/asset_toolbar"
+        android:layout_margin="6dp"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        android:scrollbars="vertical" />
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_asset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add_xml"
+        app:backgroundTint="@color/white"
+        app:tint="@color/brown" />
+
+
+</RelativeLayout>

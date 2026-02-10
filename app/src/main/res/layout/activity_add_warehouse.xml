@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Inventory.AddWarehouse">
+
+    <RelativeLayout
+        android:id="@+id/add_warehouse_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:elevation="6dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_left_arrow_line" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Add New Warehouse"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_warehouse_toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_margin="2dp"
+                android:backgroundTint="#f4f4f4"
+                android:padding="4dp"
+                android:background="@drawable/rounded_background"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="10sp"
+                    android:src="@drawable/ic_warehouse"
+                    app:tint="@color/bol_color" />
+
+                <EditText
+                    android:id="@+id/warehouse_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/overlay"
+                    android:hint="Warehouse Name"
+                    android:inputType="textCapWords"
+                    android:maxLines="1"
+                    android:padding="16dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_margin="2dp"
+                android:backgroundTint="#f4f4f4"
+                android:padding="4dp"
+                android:background="@drawable/rounded_background"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="10sp"
+                    android:src="@drawable/ic_locatio_vec"
+                    app:tint="@color/bol_color" />
+
+                <EditText
+                    android:id="@+id/warehouse_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/overlay"
+                    android:hint="Warehouse Location"
+                    android:inputType="textCapWords"
+                    android:maxLines="1"
+                    android:padding="16dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:layout_margin="2dp"
+                android:backgroundTint="#f4f4f4"
+                android:padding="4dp"
+                android:background="@drawable/rounded_background"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="10sp"
+                    android:src="@drawable/ic_pen_outline"
+                    app:tint="@color/bol_color" />
+
+                <EditText
+                    android:id="@+id/warehouse_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/overlay"
+                    android:hint="Note"
+                    android:inputType="textCapWords"
+                    android:maxLines="1"
+                    android:padding="16dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_create_warehouse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/full_rounded_background"
+                android:backgroundTint="@color/bol_color"
+                android:text="Create Warehouse"
+                android:textAllCaps="false"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</RelativeLayout>
