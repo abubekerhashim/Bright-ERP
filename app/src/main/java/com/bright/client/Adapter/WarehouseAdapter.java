@@ -5,11 +5,13 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bright.client.Inventory.Warehouses; // Import your activity
 import com.bright.client.Model.Warehouse;
 import com.bright.client.R;
 
@@ -17,8 +19,8 @@ import java.util.List;
 
 public class WarehouseAdapter extends RecyclerView.Adapter<WarehouseAdapter.ViewHolder> {
 
-    private Context context;
-    private List<Warehouse> list;
+    private final Context context;
+    private final List<Warehouse> list;
 
     public WarehouseAdapter(Context context, List<Warehouse> list) {
         this.context = context;
@@ -49,6 +51,19 @@ public class WarehouseAdapter extends RecyclerView.Adapter<WarehouseAdapter.View
             holder.txtStatus.setText("Inactive");
             holder.txtStatus.setTextColor(Color.RED);
         }
+
+        // 🔹 Call activity methods on button click
+        holder.btnRaw.setOnClickListener(v -> {
+            if (context instanceof Warehouses) {
+                ((Warehouses) context).onRawMaterialClick(warehouse);
+            }
+        });
+
+        holder.btnWarehouse.setOnClickListener(v -> {
+            if (context instanceof Warehouses) {
+                ((Warehouses) context).onWarehouseClick(warehouse);
+            }
+        });
     }
 
     @Override
@@ -59,6 +74,7 @@ public class WarehouseAdapter extends RecyclerView.Adapter<WarehouseAdapter.View
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtName, txtCode, txtLocation, txtStatus;
+        LinearLayout btnRaw, btnWarehouse;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -67,6 +83,9 @@ public class WarehouseAdapter extends RecyclerView.Adapter<WarehouseAdapter.View
             txtCode = itemView.findViewById(R.id.warehouse_code);
             txtLocation = itemView.findViewById(R.id.warehouse_location);
             txtStatus = itemView.findViewById(R.id.warehouse_status);
+
+            btnRaw = itemView.findViewById(R.id.btn_raw_material);
+            btnWarehouse = itemView.findViewById(R.id.btn_warehouse);
         }
     }
 }

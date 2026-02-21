@@ -23,9 +23,12 @@ import com.bright.client.Fragments.SalesFragment;
 import com.bright.client.Fragments.ScanFragment;
 import com.bright.client.Inventory.AddWarehouse;
 import com.bright.client.Inventory.Categories;
+import com.bright.client.Inventory.ProductList;
+import com.bright.client.Inventory.Products;
 import com.bright.client.Inventory.Warehouses;
 import com.bright.client.Model.Employee;
 import com.bright.client.Purchasing.AddSupplier;
+import com.bright.client.Purchasing.PurchasingInvoice;
 import com.bright.client.Purchasing.SuppliersList;
 import com.bright.client.Sales.AddCustomer;
 import com.bright.client.Sales.CustomerList;
@@ -44,16 +47,17 @@ public class Home extends AppCompatActivity {
     Employee currentUser;
 
     //Side Navigation Bar
-    private LinearLayout menuEmployee, menuFinance, menuInventory, menuPurchase, menuAsset, menuSales;
-    private LinearLayout subEmployee, subFinance, subInventory, subPurchase, subAsset, subSales;
-    private ImageView arrowEmployee, arrowFinance, arrowInventory, arrowPurchase, arrowAsset, arrowSales;
+    private LinearLayout menuEmployee, menuFinance, menuInventory, menuPurchase, menuAsset, menuSales, menuWarehouse;
+    private LinearLayout subEmployee, subFinance, subInventory, subPurchase, subAsset, subSales, subWarehouse;
+    private ImageView arrowEmployee, arrowFinance, arrowInventory, arrowPurchase, arrowAsset, arrowSales, arrow_warehouse;
 
     private LinearLayout btnRoles, btnEmployees, btnAttendance;
     private LinearLayout btnIncome, btnExpense, btnAccount;
-    private LinearLayout btnAddWarehouse, btnCategories, btnRawMaterials, btnWarehouses;
+    private LinearLayout btnCategories, btnRawMaterials, btnProductList;
     private LinearLayout btnAddSupplier, btnPurchaseOrder, btnSuppliers;
     private LinearLayout btnAddAsset, btnFixedAsset, btnDisposableAsset;
     private LinearLayout btnAddCustomer, btnCustomerList, btnSale;
+    private LinearLayout btnAddWarehouse, btnWarehouses;
 
 
     @Override
@@ -98,6 +102,7 @@ public class Home extends AppCompatActivity {
         menuPurchase = findViewById(R.id.menu_purchase);
         menuAsset = findViewById(R.id.menu_asset);
         menuSales = findViewById(R.id.menu_sales);
+        menuWarehouse = findViewById(R.id.menu_warehouse);
 
         subEmployee = findViewById(R.id.sub_employee);
         subFinance = findViewById(R.id.sub_finance);
@@ -105,6 +110,7 @@ public class Home extends AppCompatActivity {
         subPurchase = findViewById(R.id.sub_purchase);
         subAsset = findViewById(R.id.sub_asset);
         subSales = findViewById(R.id.sub_sales);
+        subWarehouse = findViewById(R.id.sub_warehouse);
 
         arrowEmployee = findViewById(R.id.arrow_employee);
         arrowFinance = findViewById(R.id.arrow_finance);
@@ -112,6 +118,7 @@ public class Home extends AppCompatActivity {
         arrowPurchase = findViewById(R.id.arrow_purchase);
         arrowAsset = findViewById(R.id.arrow_asset);
         arrowSales = findViewById(R.id.arrow_sales);
+        arrow_warehouse = findViewById(R.id.arrow_warehouse);
 
         //side sub menus
 
@@ -123,10 +130,9 @@ public class Home extends AppCompatActivity {
         btnExpense = findViewById(R.id.btn_expense);
         btnAccount = findViewById(R.id.btn_account);
 
-        btnAddWarehouse = findViewById(R.id.btn_add_warehouse);
         btnCategories = findViewById(R.id.btn_categories);
         btnRawMaterials = findViewById(R.id.btn_raw_materials);
-        btnWarehouses = findViewById(R.id.btn_warehouse);
+        btnProductList = findViewById(R.id.btn_product_list);
 
         btnAddSupplier = findViewById(R.id.btn_add_supplier);
         btnPurchaseOrder = findViewById(R.id.btn_purchase_order);
@@ -139,6 +145,9 @@ public class Home extends AppCompatActivity {
         btnAddCustomer = findViewById(R.id.btn_add_customer);
         btnCustomerList = findViewById(R.id.btn_customer_list);
         btnSale = findViewById(R.id.btn_sale);
+
+        btnWarehouses = findViewById(R.id.btn_warehouse);
+        btnAddWarehouse = findViewById(R.id.btn_add_warehouse);
 
 
     }
@@ -209,6 +218,16 @@ public class Home extends AppCompatActivity {
                 closeAllSubMenus();
             }
         });
+
+        menuWarehouse.setOnClickListener(v -> {
+            if (subWarehouse.getVisibility() == View.GONE) {
+                closeAllSubMenus();
+                subWarehouse.setVisibility(View.VISIBLE);
+                arrow_warehouse.setRotation(180f);
+            } else {
+                closeAllSubMenus();
+            }
+        });
     }
 
     private void subMenus(){
@@ -238,22 +257,19 @@ public class Home extends AppCompatActivity {
 
         });
 
-        btnAddWarehouse.setOnClickListener(v -> {
-            Intent intent = new Intent(Home.this, AddWarehouse.class);
-            startActivity(intent);
-        });
-
         btnCategories.setOnClickListener(v -> {
             Intent intent = new Intent(Home.this, Categories.class);
             startActivity(intent);
         });
 
         btnRawMaterials.setOnClickListener(v -> {
-
+            Intent intent = new Intent(Home.this, PurchasingInvoice.class);
+            startActivity(intent);
         });
 
-        btnWarehouses.setOnClickListener(v -> {
-            Intent intent = new Intent(Home.this, Warehouses.class);
+
+        btnProductList.setOnClickListener(v -> {
+            Intent intent = new Intent(Home.this, ProductList.class);
             startActivity(intent);
         });
 
@@ -305,6 +321,17 @@ public class Home extends AppCompatActivity {
 
         });
 
+        btnWarehouses.setOnClickListener(v -> {
+            Intent intent = new Intent(Home.this, Warehouses.class);
+            startActivity(intent);
+        });
+
+        btnAddWarehouse.setOnClickListener(v -> {
+            Intent intent = new Intent(Home.this, AddWarehouse.class);
+            startActivity(intent);
+        });
+
+
 
 
     }
@@ -316,6 +343,7 @@ public class Home extends AppCompatActivity {
         subPurchase.setVisibility(View.GONE);
         subAsset.setVisibility(View.GONE);
         subSales.setVisibility(View.GONE);
+        subWarehouse.setVisibility(View.GONE);
 
         arrowEmployee.setRotation(0f);
         arrowFinance.setRotation(0f);
@@ -323,6 +351,7 @@ public class Home extends AppCompatActivity {
         arrowPurchase.setRotation(0f);
         arrowAsset.setRotation(0f);
         arrowSales.setRotation(0f);
+        arrow_warehouse.setRotation(0f);
 
     }
 

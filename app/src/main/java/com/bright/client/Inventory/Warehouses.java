@@ -137,5 +137,24 @@ public class Warehouses extends AppCompatActivity {
     }
 
 
+    // Called when Raw Material button is clicked
+    public void onRawMaterialClick(Warehouse warehouse) {
+        Toast.makeText(this, "Raw Material clicked: " + warehouse.getName(),
+                Toast.LENGTH_SHORT).show();
+
+        // TODO: Open Raw Material Activity
+        // Intent intent = new Intent(this, RawMaterialActivity.class);
+        // intent.putExtra("warehouseId", warehouse.getCode());
+        // startActivity(intent);
+    }
+
+    // Called when Warehouse button is clicked
+    public void onWarehouseClick(Warehouse warehouse) {
+
+         Intent intent = new Intent(this, Products.class);
+         intent.putExtra("warehouseId", warehouse.getCode());
+         startActivity(intent);
+    }
+
 
 }

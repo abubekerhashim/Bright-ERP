@@ -15,7 +15,13 @@
         android:roundIcon="@drawable/ic_hali_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.BrightERP">
-        <activity android:name=".Inventory.AddCategory"></activity>
+        <activity android:name=".Inventory.ProductList"></activity>
+        <activity android:name=".Inventory.AddProduct" />
+        <activity
+            android:name=".Purchasing.PurchasingInvoice"
+            android:theme="@style/Theme.newBrightERP" />
+        <activity android:name=".Inventory.Products" />
+        <activity android:name=".Inventory.AddCategory" />
         <activity android:name=".Inventory.Categories" />
         <activity android:name=".Inventory.AddWarehouse" />
         <activity android:name=".Inventory.Warehouses" />
