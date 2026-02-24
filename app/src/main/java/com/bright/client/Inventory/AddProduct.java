@@ -2,6 +2,7 @@ package com.bright.client.Inventory;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -54,6 +55,9 @@ public class AddProduct extends AppCompatActivity {
     private String selectedCategoryName = "";
     private String selectedColor = "";
     private LinearLayout lastSelectedColor = null;
+
+
+    private AlertDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -230,6 +234,7 @@ public class AddProduct extends AppCompatActivity {
         double costPrice = Double.parseDouble(costStr);
         double sellPrice = Double.parseDouble(sellStr);
 
+        showLoading("Creating Product...");
         generateProductIdAndUpload(name, model, costPrice, sellPrice, unit);
     }
 
@@ -318,6 +323,8 @@ public class AddProduct extends AppCompatActivity {
                                             .setValue(product)
                                             .addOnSuccessListener(unused -> {
 
+                                                hideLoading();
+
                                                 Toast.makeText(this,
                                                         "Product Created",
                                                         Toast.LENGTH_SHORT).show();
@@ -325,9 +332,31 @@ public class AddProduct extends AppCompatActivity {
                                                 finish();
                                             });
                                 }))
-                .addOnFailureListener(e ->
-                        Toast.makeText(this,
-                                "Upload Failed",
-                                Toast.LENGTH_SHORT).show());
+                .addOnFailureListener(e -> {
+                    hideLoading();
+                    Toast.makeText(this,
+                            "Upload Failed",
+                            Toast.LENGTH_SHORT).show();
+                });
+
+    }
+
+    private void showLoading(String message) {
+        if (loadingDialog != null && loadingDialog.isShowing()) return;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_loading, null);
+        builder.setView(view);
+        builder.setCancelable(false);
+
+        loadingDialog = builder.create();
+        loadingDialog.show();
+    }
+
+    private void hideLoading() {
+        if (loadingDialog != null) {
+            loadingDialog.dismiss();
+            loadingDialog = null;
+        }
     }
 }
