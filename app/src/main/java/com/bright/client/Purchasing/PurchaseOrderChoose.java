@@ -1,99 +1,138 @@
 package com.bright.client.Purchasing;
 
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-
 import com.bright.client.Adapter.ChoosePurchaseListAdapter;
-import com.bright.client.Adapter.ProductListAdapter;
-import com.bright.client.Inventory.AddProduct;
-import com.bright.client.Inventory.ProductList;
 import com.bright.client.Model.Product;
 import com.bright.client.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PurchaseOrderChoose extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    ShimmerFrameLayout shimmerLayout;
+    private RecyclerView recyclerView;
+    private ShimmerFrameLayout shimmerLayout;
+    private LinearLayout btnContinue;
+    private ImageView backButton, btnRefresh;
 
-    ArrayList<Product> productList;
-    ChoosePurchaseListAdapter adapter;
+    private ChoosePurchaseListAdapter adapter;
+    private final List<Product> productList = new ArrayList<>();
 
-    DatabaseReference productRef;
+    private DatabaseReference productRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_purchase_order_choose);
 
-        Window window = getWindow();
-        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        window.setStatusBarColor(Color.TRANSPARENT);
-
-        recyclerView = findViewById(R.id.recycler_choose_purchase);
-        shimmerLayout = findViewById(R.id.shimmer_layout);
-
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        productList = new ArrayList<>();
-        adapter = new ChoosePurchaseListAdapter(this, productList);
-        recyclerView.setAdapter(adapter);
+        setupStatusBar();
+        initViews();
+        setupRecycler();
+        setupClickListeners();
 
         productRef = FirebaseDatabase.getInstance().getReference("Products");
 
         loadProducts();
-
     }
 
+    // ================= UI SETUP =================
+    private void setupStatusBar() {
+        Window window = getWindow();
+        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        window.setStatusBarColor(Color.TRANSPARENT);
+    }
+
+    private void initViews() {
+        recyclerView = findViewById(R.id.recycler_choose_purchase);
+        shimmerLayout = findViewById(R.id.shimmer_layout);
+        btnContinue = findViewById(R.id.btn_continue);
+        backButton = findViewById(R.id.back_button);
+//        btnRefresh = findViewById(R.id.btn_refresh);
+    }
+
+    private void setupRecycler() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+
+        adapter = new ChoosePurchaseListAdapter(this, productList);
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void setupClickListeners() {
+
+        backButton.setOnClickListener(v -> finish());
+
+//        btnRefresh.setOnClickListener(v -> {
+//            rotateRefreshIcon();
+//            loadProducts();
+//        });
+    }
+
+    // ================= LOAD DATA =================
     private void loadProducts() {
 
-        shimmerLayout.startShimmer();
-        shimmerLayout.setVisibility(View.VISIBLE);
-        recyclerView.setVisibility(View.GONE);
+        showLoading(true);
 
-        productRef.addValueEventListener(new ValueEventListener() {
+        productRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 productList.clear();
 
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Product product = dataSnapshot.getValue(Product.class);
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    Product product = ds.getValue(Product.class);
                     if (product != null) {
                         productList.add(product);
                     }
                 }
 
                 adapter.notifyDataSetChanged();
-
-                shimmerLayout.stopShimmer();
-                shimmerLayout.setVisibility(View.GONE);
-                recyclerView.setVisibility(View.VISIBLE);
+                showLoading(false);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
-                shimmerLayout.stopShimmer();
-                shimmerLayout.setVisibility(View.GONE);
+                showLoading(false);
             }
         });
+    }
+
+    // ================= LOADING =================
+    private void showLoading(boolean isLoading) {
+        if (isLoading) {
+            shimmerLayout.startShimmer();
+            shimmerLayout.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        } else {
+            shimmerLayout.stopShimmer();
+            shimmerLayout.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    // ================= REFRESH ANIMATION =================
+    private void rotateRefreshIcon() {
+        RotateAnimation rotate = new RotateAnimation(
+                0, 360,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
+
+        rotate.setDuration(500);
+        btnRefresh.startAnimation(rotate);
     }
 }

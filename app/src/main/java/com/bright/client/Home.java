@@ -28,6 +28,7 @@ import com.bright.client.Inventory.Products;
 import com.bright.client.Inventory.Warehouses;
 import com.bright.client.Model.Employee;
 import com.bright.client.Purchasing.AddSupplier;
+import com.bright.client.Purchasing.PurchaseOrder;
 import com.bright.client.Purchasing.PurchaseOrderChoose;
 import com.bright.client.Purchasing.PurchasingInvoice;
 import com.bright.client.Purchasing.SuppliersList;
@@ -280,7 +281,7 @@ public class Home extends AppCompatActivity {
         });
 
         btnPurchaseOrder.setOnClickListener(v -> {
-            Intent intent = new Intent(Home.this, PurchaseOrderChoose.class);
+            Intent intent = new Intent(Home.this, PurchaseOrder.class);
             startActivity(intent);
         });
 

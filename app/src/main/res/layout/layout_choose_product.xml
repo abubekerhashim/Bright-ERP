@@ -26,6 +26,19 @@
             android:padding="16dp"
             android:weightSum="1">
 
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:hint="Price"
+                android:paddingStart="10sp"
+                android:paddingEnd="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:background="@drawable/rounded_background_6dp"
+                android:elevation="2dp"
+                android:padding="10dp"/>
+
             <!-- Profile Image with rounded corners -->
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/product_photo"
@@ -56,7 +69,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
-                        android:text="HALI-PROD-000003"
+                        android:text="-------"
                         android:textColor="@color/grey"
                         android:textSize="11sp" />
 
@@ -65,7 +78,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
-                        android:text="UNI SOUND"
+                        android:text="-------"
                         android:textColor="@color/black"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -81,7 +94,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="4dp"
-                            android:text="AP-0602"
+                            android:text="-------"
                             android:textColor="@color/grey"
                             android:textSize="11sp" />
 
@@ -90,7 +103,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="4dp"
-                            android:text="●  Red"
+                            android:text="●  -----"
                             android:layout_marginStart="8dp"
                             android:textColor="@color/grey"
                             android:textSize="11sp" />
