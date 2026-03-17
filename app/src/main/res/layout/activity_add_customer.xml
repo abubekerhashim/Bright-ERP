@@ -7,8 +7,6 @@
     tools:context=".Sales.AddCustomer">
 
 
-
-
     <RelativeLayout
         android:id="@+id/add_customer_toolbar"
         android:layout_width="match_parent"
@@ -250,11 +248,11 @@
                 android:id="@+id/btn_create_customer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/full_rounded_background"
                 android:backgroundTint="@color/bol_color"
                 android:text="Create Customer"
                 android:textAllCaps="false"
-                android:layout_marginTop="10dp"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -267,18 +265,17 @@
         android:id="@+id/loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:background="#2A000000">
+        android:background="#2A000000"
+        android:visibility="gone">
 
         <ProgressBar
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_gravity="center"
             android:layout_centerInParent="true"
+            android:layout_gravity="center"
             android:indeterminate="true" />
 
     </FrameLayout>
-
 
 
 </RelativeLayout>

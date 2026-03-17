@@ -17,6 +17,7 @@ import com.bright.client.Assets.AddAssetScan;
 import com.bright.client.Assets.DisposableAssets;
 import com.bright.client.Assets.FixedAssets;
 import com.bright.client.Employees.EmployeeManagement;
+import com.bright.client.Financial.BankAccounts;
 import com.bright.client.Fragments.DashboardFragment;
 import com.bright.client.Fragments.ProfileFragment;
 import com.bright.client.Fragments.SalesFragment;
@@ -256,7 +257,8 @@ public class Home extends AppCompatActivity {
         });
 
         btnAccount.setOnClickListener(v -> {
-
+            Intent intent = new Intent(Home.this, BankAccounts.class);
+            startActivity(intent);
         });
 
         btnCategories.setOnClickListener(v -> {

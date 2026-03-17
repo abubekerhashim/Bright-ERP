@@ -14,11 +14,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bright.client.Model.Customer;
 import com.bright.client.Model.Suppliers;
 import com.bright.client.R;
 import com.google.firebase.database.DataSnapshot;
@@ -35,7 +33,7 @@ public class PurchaseOrder extends AppCompatActivity {
     private AutoCompleteTextView customerDropdown;
     private ArrayList<Suppliers> customerList = new ArrayList<>();
 
-    private DatabaseReference customerRef;
+    private DatabaseReference supplierRef;
 
     private String selectedSupplierId = "";
     private String selectedSupplierName = "";
@@ -78,29 +76,31 @@ public class PurchaseOrder extends AppCompatActivity {
         backButton = findViewById(R.id.back_button);
 
         // Firebase
-        customerRef = FirebaseDatabase.getInstance().getReference("Suppliers");
+        supplierRef = FirebaseDatabase.getInstance().getReference("Suppliers");
     }
 
     private void buttonFunc(){
         backButton.setOnClickListener(v -> onBackPressed());
         btnContinue.setOnClickListener(v -> {
-            Intent intent = new Intent(PurchaseOrder.this, PurchaseOrderChoose.class);
+            if (selectedSupplierId.isEmpty()) {
+                Toast.makeText(PurchaseOrder.this, "Please select a supplier", Toast.LENGTH_SHORT).show();
+                return; // stop further execution
+            }
+
+            Intent intent = new Intent(PurchaseOrder.this, PurchaseCheckout.class);
             intent.putExtra("supplierId", selectedSupplierId);
             intent.putExtra("supplierName", selectedSupplierName);
-
             intent.putExtra("orderDate", textOrderDate.getText().toString());
             intent.putExtra("receiveDate", textReceiveDate.getText().toString());
-
+            intent.putExtra("temporaryId", "DRAFT-" + System.currentTimeMillis());
             startActivity(intent);
-
-
         });
     }
     // ================= CATEGORY =================
 
     private void chooseCustomer() {
 
-        customerRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        supplierRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 

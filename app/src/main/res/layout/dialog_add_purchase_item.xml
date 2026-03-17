@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose Product"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_background"
+        android:elevation="4dp"
+        android:layout_margin="6dp"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/select_product"
+            android:layout_width="0dp"
+            android:layout_weight="10"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_background"
+            android:padding="10dp"/>
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_bottom_arrow"
+            android:layout_marginEnd="6dp"
+            android:layout_gravity="center_vertical"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantity and unit price"
+        android:layout_marginTop="10sp"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/input_quantity"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:hint="Quantity"
+            android:inputType="number"
+            android:elevation="2dp"
+            android:layout_margin="6dp"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_background"
+            android:padding="12dp"/>
+
+        <EditText
+            android:id="@+id/input_price"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:hint="Unit Price"
+            android:inputType="numberDecimal"
+            android:elevation="2dp"
+            android:layout_margin="6dp"
+            android:textSize="12sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:background="@drawable/rounded_background"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/btn_add_item"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="4dp"
+        android:background="@drawable/rounded_background"
+        android:backgroundTint="#DDFDEB"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_check"
+            app:tint="@color/green" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Add Item"
+            android:textColor="@color/green"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

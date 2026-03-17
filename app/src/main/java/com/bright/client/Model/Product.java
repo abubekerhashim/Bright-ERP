@@ -33,6 +33,14 @@ public class Product {
         this.totalQty = totalQty;
     }
 
+    public Product(String prodId, String name, String imageUrl, String model, String unit) {
+        this.prodId = prodId;
+        this.name = name;
+        this.imageUrl = imageUrl;
+        this.model = model;
+        this.unit = unit;
+    }
+
     public String getProdId() {
         return prodId;
     }
