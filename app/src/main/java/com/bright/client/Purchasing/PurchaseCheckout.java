@@ -174,6 +174,7 @@ public class PurchaseCheckout extends AppCompatActivity {
             map.put("image", selected.getImageUrl());
             map.put("model", selected.getModel());
             map.put("unit", selected.getUnit());
+            map.put("prodId", selected.getProdId());
             map.put("quantity", quantity);
             map.put("unitPrice", unitPrice);
             map.put("totalPrice", total);

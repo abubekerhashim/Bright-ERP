@@ -75,6 +75,15 @@ public class BankAccounts extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
+
+        // ✅ CLICK HANDLER
+        adapter.setOnItemClickListener(account -> {
+
+            Intent intent = new Intent(BankAccounts.this, AccountDetail.class);
+            intent.putExtra("accountId", account.getAccountId());
+            startActivity(intent);
+
+        });
     }
 
     // ---------------- FIREBASE ---------------- //

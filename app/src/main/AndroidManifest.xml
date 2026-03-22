@@ -15,7 +15,8 @@
         android:roundIcon="@drawable/ic_hali_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.BrightERP">
-        <activity android:name=".Financial.AddBankAccount"></activity>
+        <activity android:name=".Financial.AccountDetail"></activity>
+        <activity android:name=".Financial.AddBankAccount" />
         <activity android:name=".Financial.BankAccounts" />
         <activity android:name=".Purchasing.PurchasePayment" />
         <activity android:name=".Purchasing.PurchaseCheckout" />

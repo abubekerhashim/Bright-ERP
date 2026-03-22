@@ -1,0 +1,275 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Financial.AccountDetail">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_background"
+        android:elevation="6dp"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_left_arrow_line"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/bank_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="*****"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btn_refresh"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_refresh"
+            android:layout_alignParentEnd="true"/>
+
+        <LinearLayout
+            android:id="@+id/detail_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_background"
+                android:backgroundTint="#EAE9E9"
+                android:padding="14sp"
+                android:src="@drawable/ic_bank_black" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Balance"
+                    android:textColor="@color/bol_color"
+                    android:textStyle="bold"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/balance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Br. *****"
+                        android:textColor="@color/green"
+                        android:elevation="4dp"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:id="@+id/balance_visibility_icon"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_visibility"
+                        android:layout_marginStart="10sp"
+                        android:layout_marginBottom="2dp"
+                        app:tint="@color/bol_color" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/account_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="***** *****"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/account_number_branch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Acc: ######  ●  *** ***"
+                    android:textColor="@color/bol_color"
+                    android:textStyle="bold"
+                    android:textSize="12sp" />
+
+
+                    <TextView
+                        android:id="@+id/status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="● ****"
+                        android:textColor="@color/green"
+                        android:background="@drawable/rounded_background"
+                        android:backgroundTint="@color/sold_green"
+                        android:elevation="4dp"
+                        android:layout_gravity="end"
+                        android:layout_margin="6dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textSize="10dp"
+                        android:textStyle="bold"/>
+
+
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="30dp"
+            android:backgroundTint="#f2f3f5"
+            android:layout_below="@id/detail_layout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="12dp"
+                android:elevation="4dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_search" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:hint="Search Transactions..."
+                    android:textSize="12sp"
+                    android:gravity="bottom"
+                    android:background="@color/overlay"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/product_filter"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_filter"
+                    android:layout_marginEnd="4dp"/>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/choose_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="All"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:padding="6dp"
+            android:layout_margin="6dp"
+            android:background="@drawable/rounded_background"
+            android:backgroundTint="#F3F1F1"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="Expense"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:layout_margin="6dp"
+            android:padding="6dp"
+            android:background="@drawable/rounded_background"
+            android:backgroundTint="#F3F1F1"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="Income"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:layout_margin="6dp"
+            android:padding="6dp"
+            android:background="@drawable/rounded_background"
+            android:backgroundTint="#F3F1F1"/>
+
+    </LinearLayout>
+
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/choose_type">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Repeat shimmer item -->
+            <include layout="@layout/layout_payment_log_shimmer"/>
+            <include layout="@layout/layout_payment_log_shimmer"/>
+            <include layout="@layout/layout_payment_log_shimmer"/>
+            <include layout="@layout/layout_payment_log_shimmer"/>
+            <include layout="@layout/layout_payment_log_shimmer"/>
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="12sp"
+        android:visibility="gone"
+        android:layout_below="@id/choose_type"/>
+
+</RelativeLayout>

@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,19 +23,36 @@ public class BankAccountAdapter extends RecyclerView.Adapter<BankAccountAdapter.
     Context context;
     List<BankAccount> list;
 
+    public interface OnItemClickListener {
+        void onItemClick(BankAccount account);
+    }
+
+    private boolean isBalanceVisible = false;
+
+    public boolean isBalanceVisible() {
+        return isBalanceVisible;
+    }
+
+    public void setBalanceVisible(boolean balanceVisible) {
+        isBalanceVisible = balanceVisible;
+    }
+
+    private OnItemClickListener listener;
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
     public BankAccountAdapter(Context context, List<BankAccount> list) {
         this.context = context;
         this.list = list;
-
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View view = LayoutInflater.from(context).inflate(R.layout.layout_bank_account, parent, false);
         return new MyViewHolder(view);
-
     }
 
     @Override
@@ -47,8 +65,6 @@ public class BankAccountAdapter extends RecyclerView.Adapter<BankAccountAdapter.
         holder.name.setText(account.getAccountName());
         holder.number.setText(account.getAccountNumber());
 
-        DecimalFormat df = new DecimalFormat("#,##0.00");
-        holder.balance.setText("ETB " + df.format(account.getBalance()));
 
         if (account.isStatus()) {
             holder.status.setText("Active");
@@ -58,6 +74,36 @@ public class BankAccountAdapter extends RecyclerView.Adapter<BankAccountAdapter.
             holder.status.setTextColor(Color.RED);
         }
 
+        // ✅ CLICK LISTENER
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(account);
+            }
+        });
+
+        DecimalFormat df = new DecimalFormat("#,##0.00");
+
+        // default state → hidden
+        holder.balance.setText("Br. *****");
+        holder.balanceVisibility.setImageResource(R.drawable.ic_visibility_off);
+        holder.balanceVisibility.setTag(false); // false = hidden
+
+        holder.balanceVisibility.setOnClickListener(v -> {
+
+            boolean isVisible = (boolean) holder.balanceVisibility.getTag();
+
+            if (isVisible) {
+                // hide
+                holder.balance.setText("Br. *****");
+                holder.balanceVisibility.setImageResource(R.drawable.ic_visibility_off);
+                holder.balanceVisibility.setTag(false);
+            } else {
+                // show
+                holder.balance.setText("Br. " + df.format(account.getBalance()));
+                holder.balanceVisibility.setImageResource(R.drawable.ic_visibility);
+                holder.balanceVisibility.setTag(true);
+            }
+        });
     }
 
     @Override
@@ -67,7 +113,8 @@ public class BankAccountAdapter extends RecyclerView.Adapter<BankAccountAdapter.
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView bank, name, number, balance,id, status;
+        TextView bank, name, number, balance, id, status;
+        ImageView balanceVisibility;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,6 +125,8 @@ public class BankAccountAdapter extends RecyclerView.Adapter<BankAccountAdapter.
             number = itemView.findViewById(R.id.account_number);
             balance = itemView.findViewById(R.id.account_balance);
             status = itemView.findViewById(R.id.account_status);
+            balanceVisibility = itemView.findViewById(R.id.balance_visibility_icon);
         }
     }
+
 }
